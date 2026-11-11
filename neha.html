@@ -1,0 +1,804 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neha| Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>  
+    <style> 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    
+}
+
+:root {
+    --bg: #794b39;
+    --card: #ffffff;
+    --text: #20243a;
+    --muted: #62677b;
+    --primary: #6655e8;
+    --secondary: #eae7ff;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: 0.3s;
+}
+
+body.dark {
+    --bg: #111322;
+    --card: #1c2035;
+    --text: #f5f5ff;
+    --muted: #b5bad0;
+    --primary: #a394ff;
+    --secondary: #302b50;
+}
+
+
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--card);
+    box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+}
+
+.navbar {
+    max-width: 1150px;
+    margin: auto;
+    padding: 18px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 800;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.logo span,
+.section-title span,
+.home-content h1 span {
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 22px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary);
+}
+
+.theme-btn,
+.menu-btn {
+    border: none;
+    background: var(--secondary);
+    padding: 10px 13px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.menu-btn {
+    display: none;
+}
+
+
+
+.section {
+    max-width: 1150px;
+    margin: auto;
+    padding: 90px 25px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 45px;
+}
+
+
+
+.home {
+    min-height: 580px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.home-content {
+    max-width: 600px;
+}
+
+.welcome {
+    color: var(--primary);
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.home-content h1 {
+    font-size: 55px;
+}
+
+.home-content h2 {
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+.home-content p {
+    color: var(--muted);
+    line-height: 1.9;
+}
+
+.home-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    opacity: 0.9;
+}
+
+.btn.secondary {
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+.profile {
+    text-align: center;
+    background: var(--card);
+    padding: 35px;
+    border-radius: 25px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+    min-width: 260px;
+}
+
+.profile-circle {
+    width: 180px;
+    height: 180px;
+    margin: auto auto 20px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6655e8, #a394ff);
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: 90px;
+    font-weight: 700;
+}
+
+.profile-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+
+
+.about-card {
+    background: var(--card);
+    padding: 35px;
+    border-radius: 18px;
+    line-height: 1.9;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.04);
+}
+
+.about-card h3 {
+    margin-bottom: 15px;
+}
+
+.about-card p {
+    color: var(--muted);
+}
+
+.about-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+
+
+.timeline {
+    max-width: 750px;
+    margin: auto;
+    border-left: 3px solid var(--primary);
+    padding-left: 30px;
+}
+
+.timeline-card {
+    background: var(--card);
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 14px;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+}
+
+.timeline-card::before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    background: var(--primary);
+    border-radius: 50%;
+    position: absolute;
+    left: -39px;
+    top: 30px;
+}
+
+.timeline-card p,
+.timeline-card span {
+    color: var(--muted);
+}
+
+.timeline-card span {
+    font-size: 13px;
+}
+
+
+
+.skills-container {
+    max-width: 750px;
+    margin: auto;
+    background: var(--card);
+    padding: 35px;
+    border-radius: 18px;
+}
+
+.skill {
+    margin-bottom: 25px;
+}
+
+.skill-heading {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 9px;
+    font-weight: 600;
+}
+
+.progress {
+    height: 10px;
+    background: var(--secondary);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress div {
+    height: 100%;
+    background: linear-gradient(90deg, #6655e8, #a394ff);
+    border-radius: 20px;
+}
+
+
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.project-card,
+.hobby-card {
+    background: var(--card);
+    padding: 30px;
+    border-radius: 17px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.project-card:hover,
+.hobby-card:hover {
+    transform: translateY(-8px);
+}
+
+.project-icon,
+.hobby-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.project-card p,
+.hobby-card p {
+    color: var(--muted);
+    line-height: 1.7;
+    margin: 12px 0;
+}
+
+.project-card span {
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.project-link {
+    display: block;
+    margin-top: 20px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+
+.achievement-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: var(--card);
+    padding: 22px;
+    border-radius: 14px;
+    margin: 15px auto;
+    max-width: 750px;
+}
+
+.achievement-icon {
+    font-size: 35px;
+}
+
+.achievement-card p {
+    color: var(--muted);
+    margin-top: 5px;
+}
+
+
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+}
+
+.contact-info,
+#contactForm {
+    background: var(--card);
+    padding: 30px;
+    border-radius: 18px;
+}
+
+.contact-info p {
+    color: var(--muted);
+    margin-top: 20px;
+    overflow-wrap: anywhere;
+}
+
+#contactForm input,
+#contactForm textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border: 1px solid #aaa;
+    background: var(--bg);
+    color: var(--text);
+    border-radius: 8px;
+    font-family: inherit;
+    outline: none;
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+    border-color: var(--primary);
+}
+
+#contactForm textarea {
+    height: 130px;
+    resize: vertical;
+}
+
+#formMessage {
+    margin-top: 15px;
+    color: var(--primary);
+    font-size: 14px;
+}
+
+
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: var(--card);
+    color: var(--muted);
+}
+
+footer a {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 850px) {
+    .nav-links {
+        gap: 12px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .home-content h1 {
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 650px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .menu-btn {
+        display: block;
+        order: 2;
+    }
+
+    .theme-btn {
+        order: 3;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        order: 4;
+        padding: 20px 0 5px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .home {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 65px;
+    }
+
+    .home-content h1 {
+        font-size: 38px;
+    }
+
+    .home-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .cards,
+    .contact-container,
+    .about-info {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 29px;
+    }
+
+    .profile {
+        width: 100%;
+    }
+}
+    </style>    
+    </head>
+<body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neha | Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+        <a href="#home" class="logo">Neha<span>.</span></a>
+
+        <button class="menu-btn" id="menuBtn">☰</button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <button id="themeBtn" class="theme-btn">🌙</button>
+    </nav>
+</header>
+
+<main>
+
+
+<section id="home" class="home section">
+    <div class="home-content">
+        <p class="welcome">WELCOME TO MY PORTFOLIO</p>
+        <h1>Hi, I'm <span>Neha</span></h1>
+        <h2>Btech Student & Aspiring Web Developer</h2>
+        <p>
+            Welcome to my personal portfolio website.
+            I am passionate about learning new technologies,
+            business and developing creative ideas.
+        </p>
+
+        <div class="home-buttons">
+            <a href="#about" class="btn">Explore More</a>
+            <a href="#contact" class="btn secondary">Contact Me</a>
+        </div>
+    </div>
+
+    <div class="profile">
+    <div class="profile-circle">
+        <img src="portfolio_web/neha.jpeg" alt="Neha">
+    </div>
+    <h3>Neha</h3>
+    <p>Student | Learner | Developer</p>
+</div>
+</section>
+
+
+<section id="about" class="section">
+    <h2 class="section-title">About <span>Me</span></h2>
+
+    <div class="about-card">
+        <h3>Who Am I?</h3>
+        <p>
+            Hello! My name is Neha. I am a Btech student
+            interested in coding, technology and web development.
+            I enjoy learning new skills and improving my knowledge.
+            My goal is to become a successful professional
+            and build something meaningful in the future.
+        </p>
+
+        <div class="about-info">
+            <p><strong>Name:</strong> Neha</p>
+            <p><strong>Course:</strong> Btech</p>
+            <p><strong>Interest:</strong> Technology</p>
+            <p><strong>Hobby:</strong> Dancing</p>
+        </div>
+    </div>
+</section>
+
+
+<section id="education" class="section">
+    <h2 class="section-title">My <span>Education</span></h2>
+
+    <div class="timeline">
+        <div class="timeline-card">
+            <h3>School Education</h3>
+            <p>Completed my school education.</p>
+            <span>Previous Education</span>
+        </div>
+
+        <div class="timeline-card">
+            <h3>Pre-University Education</h3>
+            <p>Completed my PUC education.</p>
+            <span>Higher Secondary</span>
+        </div>
+
+        <div class="timeline-card">
+            <h3>Bachelor of Business Administration</h3>
+            <p>Currently pursuing Btech.</p>
+            <span>Present</span>
+        </div>
+    </div>
+</section>
+
+
+<section id="skills" class="section">
+    <h2 class="section-title">My <span>Skills</span></h2>
+
+    <div class="skills-container">
+
+        <div class="skill">
+            <div class="skill-heading">
+                <span>HTML</span><span>80%</span>
+            </div>
+            <div class="progress"><div style="width:80%"></div></div>
+        </div>
+
+        <div class="skill">
+            <div class="skill-heading">
+                <span>CSS</span><span>65%</span>
+            </div>
+            <div class="progress"><div style="width:65%"></div></div>
+        </div>
+
+        <div class="skill">
+            <div class="skill-heading">
+                <span>JavaScript</span><span>40%</span>
+            </div>
+            <div class="progress"><div style="width:40%"></div></div>
+        </div>
+
+        <div class="skill">
+            <div class="skill-heading">
+                <span>Communication</span><span>70%</span>
+            </div>
+            <div class="progress"><div style="width:70%"></div></div>
+        </div>
+
+        <div class="skill">
+            <div class="skill-heading">
+                <span>Teamwork</span><span>75%</span>
+            </div>
+            <div class="progress"><div style="width:75%"></div></div>
+        </div>
+
+    </div>
+</section>
+
+
+<section id="projects" class="section">
+    <h2 class="section-title">My <span>Projects</span></h2>
+
+    <div class="cards">
+
+        <div class="project-card">
+            <div class="project-icon">💻</div>
+            <h3>Personal Portfolio</h3>
+            <p>A website to showcase my personal information and skills.</p>
+            <span>HTML | CSS | JavaScript</span>
+            <a href="#contact" class="project-link">View Details →</a>
+        </div>
+
+        <div class="project-card">
+            <div class="project-icon">🌐</div>
+            <h3>Student Profile Page</h3>
+            <p>A simple webpage displaying student details and abilities.</p>
+            <span>HTML | CSS</span>
+            <a href="#contact" class="project-link">View Details →</a>
+        </div>
+
+        <div class="project-card">
+            <div class="project-icon">📊</div>
+            <h3>Learning Projects</h3>
+            <p>Small practice projects created while learning web development.</p>
+            <span>Web Development</span>
+            <a href="#contact" class="project-link">View Details →</a>
+        </div>
+
+    </div>
+</section>
+
+
+<section id="hobbies" class="section">
+    <h2 class="section-title">Hobbies & <span>Interests</span></h2>
+
+    <div class="cards">
+        <div class="hobby-card">
+            <div class="hobby-icon">💃</div>
+            <h3>dancing</h3>
+            <p>I enjoy dancing in my free time.</p>
+        </div>
+
+        <div class="hobby-card">
+            <div class="hobby-icon">💻</div>
+            <h3>Technology</h3>
+            <p>I enjoy exploring computers and new technologies.</p>
+        </div>
+
+        <div class="hobby-card">
+            <div class="hobby-icon">📈</div>
+            <h3>Business</h3>
+            <p>I am interested in coding.</p>
+        </div>
+    </div>
+</section>
+
+
+<section id="achievements" class="section">
+    <h2 class="section-title">My <span>Achievements</span></h2>
+
+    <div class="achievement-card">
+        <div class="achievement-icon">🏆</div>
+        <div>
+            <h3>Academic Journey</h3>
+            <p>Continuously learning and developing new skills.</p>
+        </div>
+    </div>
+
+    <div class="achievement-card">
+        <div class="achievement-icon">🎯</div>
+        <div>
+            <h3>Web Development Learning</h3>
+            <p>Building practical projects using HTML, CSS and JavaScript.</p>
+        </div>
+    </div>
+
+    <div class="achievement-card">
+        <div class="achievement-icon">🚀</div>
+        <div>
+            <h3>Personal Development</h3>
+            <p>Working towards improving my knowledge and confidence.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+    <h2 class="section-title">Contact <span>Me</span></h2>
+
+    <div class="contact-container">
+        <div class="contact-info">
+            <h3>Let's Connect!</h3>
+            <p>Feel free to contact me for collaboration or discussion.</p>
+            <p>📧 Email: neha@example.com</p>
+            <p>💻 GitHub: github.com/yourusername</p>
+            <p>🔗 LinkedIn: linkedin.com/in/yourusername</p>
+        </div>
+
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name">
+            <input type="email" id="email" placeholder="Your Email">
+            <textarea id="message" placeholder="Your Message"></textarea>
+            <button type="submit" class="btn">Send Message</button>
+            <p id="formMessage"></p>
+        </form>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <p>©️ 2026 NEHA | Personal Portfolio Website</p>
+    <a href="#home">Back to Top ↑</a>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
